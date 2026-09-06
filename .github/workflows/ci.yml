@@ -1,0 +1,33 @@
+name: CI
+
+# Validates every <profile-id>/profile.json in this repo against
+# schema/profile.schema.json on every push/PR, so a structurally broken
+# profile (one that would raise ValueError/RuntimeError when TIGHC/Engine
+# loads it) is caught here instead of at a player's first launch.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.11", "3.12"]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements-test.txt
+
+      - name: Run schema validation tests
+        run: pytest -v

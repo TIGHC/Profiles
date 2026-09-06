@@ -116,6 +116,27 @@ README, since the engine (not this repo) is what parses and enforces them.
 This can also be done interactively from TIGHC's GUI (Profiles tab ->
 "New profile...", which starts from a copy of `minecraft/`).
 
+## Validation
+
+Every `profile.json` in this repo is checked against
+[`schema/profile.schema.json`](schema/profile.schema.json), a JSON Schema
+derived from how TIGHC/Engine's `src/profiles.py` and `src/ranges.py`
+actually parse and enforce a profile at load time. A pytest suite in
+[`tests/`](tests/) validates all profiles against that schema, plus a few
+semantic checks (unique binding ids, `vibe` low <= high, `priority` entries
+referencing real binding ids) that plain JSON Schema can't express on its
+own.
+
+Run it locally:
+
+```
+pip install -r requirements-test.txt
+pytest
+```
+
+This also runs automatically in CI (`.github/workflows/ci.yml`) on every
+push and pull request.
+
 ## Versioning and contact
 
 Follows [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`),

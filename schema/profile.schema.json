@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/TIGHC/Profiles/schema/profile.schema.json",
+  "title": "TIGHC game profile",
+  "description": "Structural contract for a <profile-id>/profile.json file, derived from how TIGHC/Engine's src/profiles.py (_load_profile, _parse_devices_field) and src/ranges.py (VibeRange) actually parse and validate a profile at load time. A profile that fails this schema would raise ValueError/RuntimeError in the Engine, or (for the bindings/priority rules noted below) is a repo-convention requirement stricter than the Engine's own defaults. See Engine tests/test_profiles.py and tests/test_ranges.py for the reference behavior this schema mirrors.",
+  "type": "object",
+  "additionalProperties": true,
+  "required": ["window_titles", "bindings"],
+  "properties": {
+    "name": {
+      "description": "Display name shown in the GUI. Optional in the Engine - falls back to the profile's folder name when omitted (_load_profile: data.get('name', profile_dir.name)) - but every profile in this repo sets it explicitly.",
+      "type": "string",
+      "minLength": 1
+    },
+    "window_titles": {
+      "description": "Substrings (or, with window_title_exact, full strings) matched case-sensitively against the foreground window title. Engine requires at least one entry (_load_profile raises ValueError('profile.json needs at least one entry in window_titles') otherwise).",
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "window_title_exact": {
+      "description": "When true, window_titles entries must equal the full window title exactly instead of matching as a substring. Defaults to false.",
+      "type": "boolean"
+    },
+    "priority": {
+      "description": "Binding ids in highest-to-lowest priority order, used by the GUI. Purely advisory to the Engine (not validated there), but this repo's test suite additionally checks every entry names a real binding id in this same profile.",
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "steamgriddb_id": {
+      "description": "Optional SteamGridDB game id, pinning cover-art lookup to an exact game instead of searching by name.",
+      "type": "integer"
+    },
+    "steamgriddb_grid_id": {
+      "description": "Optional SteamGridDB grid (cover image) id, pinning artwork to one exact image instead of the default top-voted one.",
+      "type": "integer"
+    },
+    "bindings": {
+      "description": "The profile's keybindings. The Engine itself tolerates an empty/omitted list (data.get('bindings', [])), but a profile in this repo is expected to actually do something, so this schema requires at least one entry.",
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/binding" }
+    },
+    "background": {
+      "description": "Optional idle vibe band used when no binding is active. Not currently read by the Engine's profile loader, but documented in this repo's README as part of the profile format; kept optional and permissive here for forward compatibility.",
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "vibe": { "$ref": "#/$defs/vibeRange" }
+      }
+    }
+  },
+  "$defs": {
+    "vibeRange": {
+      "description": "A [low, high] 0.0-1.0 intensity band (src/ranges.py VibeRange). Engine additionally requires low <= high (VibeRange.__post_init__), which this repo's test suite checks separately since plain JSON Schema can't compare two array elements to each other.",
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": { "type": "number", "minimum": 0.0, "maximum": 1.0 }
+    },
+    "binding": {
+      "type": "object",
+      "additionalProperties": true,
+      "required": ["id", "keys", "vibe"],
+      "properties": {
+        "id": {
+          "description": "Unique identifier for this binding within the profile. Engine raises ValueError('duplicate binding id ...') on repeats (checked separately - JSON Schema can't express uniqueness keyed on one object property across array items).",
+          "type": "string",
+          "minLength": 1
+        },
+        "keys": {
+          "description": "Key/button tokens that trigger this binding (lowercased by the Engine). Must be non-empty - Engine raises ValueError(\"binding '...' has no keys\") otherwise.",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "enabled": {
+          "description": "Whether this binding is active for event dispatch. Defaults to true. Disabled bindings are still recorded for the startup banner/GUI but excluded from bindings_by_key.",
+          "type": "boolean"
+        },
+        "devices": {
+          "description": "Channel nicknames this binding targets, or [\"all\"] (case-insensitive) for every channel. Optional - defaults to [\"all\"] when omitted. If present, must be a non-empty list (Engine's _parse_devices_field raises ValueError otherwise).",
+          "type": "array",
+          "minItems": 1,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "vibe": { "$ref": "#/$defs/vibeRange" },
+        "mode": {
+          "description": "Documented in this repo's README (\"continuous\" vs \"pulse\") but not currently read by the Engine's profile loader (_load_profile hardcodes mode=None regardless of this field). Kept optional/permissive for forward compatibility.",
+          "type": "string"
+        }
+      }
+    }
+  }
+}
