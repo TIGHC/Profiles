@@ -4,6 +4,13 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.17] - 2026-09-10
+
+### Fixed
+- **`assets/logo.png`'s tagline was still hard to read after v1.3.16's
+  alpha/color fix** - same file, byte-for-byte, as the Engine repo; see its
+  changelog for the full detail. New size 582x126 (was 455x126).
+
 ## [1.3.16] - 2026-09-10
 
 ### Fixed
