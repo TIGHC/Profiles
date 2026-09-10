@@ -8,7 +8,7 @@
 > and controls adult haptic/sex toy devices. Intended for use only by adults
 > aged 18 or older.
 
-**Version 1.3.10** — see [CHANGELOG.md](CHANGELOG.md) for release history.
+**Version 1.3.11** — see [CHANGELOG.md](CHANGELOG.md) for release history.
 
 Game profiles for [TIGHC (The Intiface Game Haptics Controller)](https://github.com/TIGHC/Engine).
 On first launch, TIGHC downloads profiles from this repo automatically. Use
@@ -100,9 +100,9 @@ README, since the engine (not this repo) is what parses and enforces them.
 2. Edit `profile.json`: set `name`, `window_titles` to match that game's
    window title, and adjust `bindings` and `vibe` ranges to that game's controls.
 3. Validate it loads correctly by pointing a TIGHC checkout's `profiles/` at
-   this repo (or copying the folder in) and running `python cli.py` or
-   `python gui.py` - a structurally invalid profile fails fast with a clear
-   error at startup rather than crashing mid-session.
+   this repo (or copying the folder in) and running `python gui.py` - a
+   structurally invalid profile fails fast with a clear error at startup
+   rather than crashing mid-session.
 
 This can also be done interactively from TIGHC's GUI (Profiles tab ->
 "New profile...", which starts from a copy of `minecraft/`).

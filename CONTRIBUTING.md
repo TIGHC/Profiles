@@ -16,8 +16,8 @@ Issues and pull requests are welcome at
    controls. See the [README](README.md) for the full field reference.
 3. Validate it loads correctly: point a [TIGHC/Engine](https://github.com/TIGHC/Engine)
    checkout's profiles folder at this repo (or copy the folder in) and run
-   `python cli.py` or `python gui.py` - a structurally invalid profile fails
-   fast with a clear error at startup rather than crashing mid-session.
+   `python gui.py` - a structurally invalid profile fails fast with a clear
+   error at startup rather than crashing mid-session.
 4. Note in your PR description whether the bindings are confirmed against
    the game's actual default keybinds, or inferred/adjusted from a similar
    game - the README's "Included profiles" list tracks this per profile so

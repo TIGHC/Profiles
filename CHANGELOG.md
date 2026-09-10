@@ -4,6 +4,20 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.11] - 2026-09-10
+
+### Fixed
+- **`assets/icon.png`/`icon.ico` had the same baked-in low-alpha haze as
+  `logo.png` did before v1.3.9** - never actually fixed for these two,
+  since that pass only touched `logo.png`. Same fix applied: thresholded
+  out any pixel with alpha <= 20. Visible as a soft grey box/halo around
+  the icon on light backgrounds in particular (per a report against the
+  website, which shares this file) - `icon.ico` regenerated from the
+  cleaned source at its original size set (16/32/48/64/128/256).
+- `README.md` and `CONTRIBUTING.md` still told contributors to run
+  `python cli.py` to validate a new profile - dropped now that Engine
+  v5.0.0 removed the CLI.
+
 ## [1.3.10] - 2026-09-10
 
 ### Changed
