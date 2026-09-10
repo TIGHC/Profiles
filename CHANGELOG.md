@@ -4,6 +4,18 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.14] - 2026-09-10
+
+### Changed
+- **New icon: a controller silhouette with pulse waves, replacing the
+  bullseye/target rings** - same file, byte-for-byte, as the Engine repo;
+  see its changelog for the full rationale. `assets/icon.png`/`icon.ico`
+  regenerated, `assets/logo.png`'s icon half swapped in with the wordmark
+  and tagline unchanged.
+- **`README.md`'s author byline now reads "A StuxieDev Project"** (was
+  "Built & Maintained by StuxieDev"), linking to
+  `https://projects.stuxie.dev` instead of `https://stuxie.dev`.
+
 ## [1.3.13] - 2026-09-10
 
 ### Changed
