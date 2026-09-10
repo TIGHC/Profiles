@@ -4,6 +4,18 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.12] - 2026-09-10
+
+### Fixed
+- **`assets/logo.png`/`icon.png`/`icon.ico` still had a visible dark
+  speckled fringe around every letter/ring** - the two previous fixes only
+  thresholded out very-low-alpha pixels, which missed a second, separate
+  shadow layer at the shape edges with real, visible opacity. Fixed
+  properly this time: any pixel with alpha > 0 whose RGB is
+  dark-and-not-purple (`max(r,g,b) < 40`) is zeroed regardless of its
+  alpha level. Same file, byte-for-byte, as the Engine repo - see its
+  changelog for the full before/after detail.
+
 ## [1.3.11] - 2026-09-10
 
 ### Fixed
