@@ -4,6 +4,13 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.13] - 2026-09-10
+
+### Changed
+- **`README.md`'s author link now points to `https://stuxie.dev`** instead
+  of `https://github.com/StuxieDev`. The GitHub avatar image
+  (`github.com/StuxieDev.png`) is unaffected.
+
 ## [1.3.12] - 2026-09-10
 
 ### Fixed
