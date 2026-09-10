@@ -4,6 +4,13 @@ All notable changes to this project are documented here. Versioning follows
 [Semantic Versioning](https://semver.org/) (`MAJOR.MINOR.PATCH`), independent
 of the main [TIGHC](https://github.com/TIGHC/Engine) engine's own version.
 
+## [1.3.16] - 2026-09-10
+
+### Fixed
+- **`assets/logo.png`'s tagline read as a lighter, washed-out purple** next
+  to the bold "TIGHC" wordmark and the icon - same file, byte-for-byte, as
+  the Engine repo; see its changelog for the full detail.
+
 ## [1.3.15] - 2026-09-10
 
 ### Changed
