@@ -8,7 +8,7 @@
 > and controls adult haptic/sex toy devices. Intended for use only by adults
 > aged 18 or older.
 
-**Version 1.3.18** — see [CHANGELOG.md](CHANGELOG.md) for release history.
+**Version 1.3.19** — see [CHANGELOG.md](CHANGELOG.md) for release history.
 
 Game profiles for [TIGHC (The Intiface Game Haptics Controller)](https://github.com/TIGHC/Engine).
 On first launch, TIGHC downloads profiles from this repo automatically. Use
