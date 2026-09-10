@@ -10,7 +10,7 @@
 
 **Version 1.3.9** — see [CHANGELOG.md](CHANGELOG.md) for release history.
 
-Game profiles for [The Intiface Game Haptics Controller (TIGHC)](https://github.com/TIGHC/Engine).
+Game profiles for [TIGHC (The Intiface Game Haptics Controller)](https://github.com/TIGHC/Engine).
 On first launch, TIGHC downloads profiles from this repo automatically. Use
 "Update profiles from GitHub" in the Profiles tab to pick up new additions,
 or "Restore from GitHub..." to reset a profile to its original version.
