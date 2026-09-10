@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/logo.png" width="500" alt="The Intiface Game Haptics Controller (TIGHC)">
+  <img src="assets/logo.png" width="300" alt="The Intiface Game Haptics Controller (TIGHC)">
 </p>
 
 # TIGHC Profiles
@@ -8,7 +8,7 @@
 > and controls adult haptic/sex toy devices. Intended for use only by adults
 > aged 18 or older.
 
-**Version 1.3.9** — see [CHANGELOG.md](CHANGELOG.md) for release history.
+**Version 1.3.10** — see [CHANGELOG.md](CHANGELOG.md) for release history.
 
 Game profiles for [TIGHC (The Intiface Game Haptics Controller)](https://github.com/TIGHC/Engine).
 On first launch, TIGHC downloads profiles from this repo automatically. Use
