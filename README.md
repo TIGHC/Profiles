@@ -8,7 +8,7 @@
 > and controls adult haptic/sex toy devices. Intended for use only by adults
 > aged 18 or older.
 
-**Version 1.3.6** — see [CHANGELOG.md](CHANGELOG.md) for release history.
+**Version 1.3.8** — see [CHANGELOG.md](CHANGELOG.md) for release history.
 
 Game profiles for [The Intiface Game Haptics Controller (TIGHC)](https://github.com/TIGHC/Engine).
 On first launch, TIGHC downloads profiles from this repo automatically. Use
@@ -17,15 +17,6 @@ or "Restore from GitHub..." to reset a profile to its original version.
 
 Website: https://tighc.stuxie.dev  
 Repository: https://github.com/TIGHC/Profiles
-
-## Author
-
-<img src="assets/author.png" width="80" height="80" alt="StuxieDev" align="left" style="margin-right: 12px;">
-
-**[StuxieDev](https://github.com/StuxieDev)**
-
-<br>
-<br>
 
 ## Structure
 
